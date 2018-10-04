@@ -1,7 +1,7 @@
 //trevor Roddy
 //generate rain
 
-raindrop[] rd = new raindrop[999];
+raindrop[] rd = new raindrop[300];
 
 void setup()
 {
