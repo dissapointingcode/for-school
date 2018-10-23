@@ -1,5 +1,4 @@
-platforms squares[] = new platforms[0];
-
+//this is an endless running platformer
 float temp_X = 0;
 int gridy = 0;
 int scale = 64; // how big each grid should be
@@ -8,18 +7,26 @@ float screenspeed = 1;
 float maxjump = scale + 47;
 
 playerClass player = new playerClass();
+platforms squares[] = new platforms[20];
 
 void setup() {
   size(1024,896);
+  squares[0] = new platforms();
+     for (int i = 1; i < squares.length; i++){
+     squares[i] = new platforms(squares[i-1]);
+   }
 }
 float currentground = (896 - 2 * scale);
 void draw() {
    background(255);
    grid(temp_X);
+   for (int i = 0; i < squares.length; i++){
+     squares[3].display();
+   }
    player.updateLocal(currentground);
    player.display();
-   temp_X -= 1;
-   screenspeed += .1;
+   temp_X -= screenspeed;
+   screenspeed += .001;
    maxjump = ((47 * temp_X) + scale);
 }
 
