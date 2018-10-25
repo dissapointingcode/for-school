@@ -15,19 +15,19 @@ void setup() {
      for (int i = 1; i < squares.length; i++){
      squares[i] = new platforms(squares[i-1]);
    }
-}
+  }
 float currentground = (896 - 2 * scale);
 void draw() {
    background(255);
    grid(temp_X);
-   for (int i = 0; i < squares.length; i++){
-     squares[3].display();
-   }
    player.updateLocal(currentground);
    player.display();
    temp_X -= screenspeed;
    screenspeed += .001;
-   maxjump = ((47 * temp_X) + scale);
+   maxjump = ((47 * screenspeed) + scale);
+      for (int i = 0; i < squares.length; i++){
+     squares[i].display(i);
+   }
 }
 
   void grid(float temp_x) {

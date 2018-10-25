@@ -2,17 +2,22 @@ class playerClass {
     float y = 6*scale;
     float x = 4 * scale;
     float velocity = scale / 50;
-    float gravity = 4;
+    float gravity = 0;
     
     void updateLocal(float currentground) {//update location
     
     float ground = currentground;
     
-    
     //will do gravity and check if there is a need to stop ( ground )
+    //checking for collision in checkcollision function
+     for (int i = 0; i < squares.length; i++){
+     if (squares[i].checkCollision(player) == true){
+       gravity = 0;
+       player.jump();
+     }
+     }
     
-
-    // do gravity
+    // do gravity 
     y += gravity;
     if (gravity <= scale) // give it terminal velocity
     gravity += velocity;
@@ -39,6 +44,5 @@ class playerClass {
      }
     }
   }
-    
+    }
   
-}
