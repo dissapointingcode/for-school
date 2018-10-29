@@ -10,23 +10,24 @@ class playerClass {
     
     //will do gravity and check if there is a need to stop ( ground )
     //checking for collision in checkcollision function
-     for (int i = 0; i < squares.length; i++){
-     if (squares[i].checkCollision(player) == true){
-       gravity = 0;
-       player.jump();
-     }
-     }
+     player.jump();
     
     // do gravity 
     y += gravity;
     if (gravity <= scale) // give it terminal velocity
     gravity += velocity;
     
-    if (y >= ground) { //check if there is ground
-      y = ground;
-      player.jump();
-    }
+          for (int i = 0; i < squares.length; i++){
+     if (squares[i].checkCollision(player) == true){
+       gravity = 0;
+     }
+     }
     
+    if (y >= ground) { //check if there is ground
+      y = ground;   
+      gravity = 0;
+    }
+      
     
 }
   
@@ -36,13 +37,15 @@ class playerClass {
   }
   
   void jump() {
+    
     if (keyPressed) {
      if ( key == 'w' || keyCode == UP) {
+       if (gravity == 0) {
        gravity = -16;
      if (gravity == -16)
-       gravity -= 4;
+       gravity -= 4.1;
      }
     }
   }
     }
-  
+}  
