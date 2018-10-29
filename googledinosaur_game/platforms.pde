@@ -25,16 +25,12 @@ class platforms {
        squares[currentsquare] = new platforms();
     }
   }
-      boolean colliding;
-  boolean checkCollision(playerClass player) {
+  void checkCollision(playerClass player) {
         if(this.displayX <= player.x + scale && this.displayX >= player.x - scale){
       if((player.y + scale) >= this.y - 3 && (player.y + scale) <= this.y + 3){
-        colliding = true;
+        player.gravity = 0;
       }
     }
-        else
-        colliding = false;
-        return colliding;
   
   }
 }

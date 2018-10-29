@@ -18,9 +18,7 @@ class playerClass {
     gravity += velocity;
     
           for (int i = 0; i < squares.length; i++){
-     if (squares[i].checkCollision(player) == true){
-       gravity = 0;
-     }
+     squares[i].checkCollision(this);
      }
     
     if (y >= ground) { //check if there is ground
