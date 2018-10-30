@@ -1,4 +1,4 @@
-//trevor roddy october 3rd
+//trevor roddy october 30th
 //generative art mimicing a barcode but moving
 
 bars[] thebar = new bars[12];
@@ -6,7 +6,7 @@ bars[] thebar = new bars[12];
   void setup() {
   size(400,600);
   background(0);
-  frameRate(15);
+  frameRate(24);
   for (int k = 0; k < thebar.length; k++){
      thebar[k] = new bars();
      thebar[k].the_y = (80 + (40 * k));
